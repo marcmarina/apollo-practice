@@ -1,26 +1,20 @@
-import express from 'express';
-import { ApolloServer, gql } from 'apollo-server-express';
+import express from "express";
+import { createGraphQLServer } from "./graphql/create-graphql-server";
 
-async function startApolloServer() {
-  const typeDefs = gql`
-    type Query {
-      hello: String
-    }
-  `;
+const app = express();
+const port = process.env.PORT || 8080;
 
-  const resolvers = {
-    Query: {
-      hello: () => 'Hello world!',
-    },
-  };
+const apolloServer = createGraphQLServer();
+apolloServer.applyMiddleware({ app });
 
-  const server = new ApolloServer({ typeDefs, resolvers });
-  await server.start();
+const server = app.listen(port, () => {
+  console.log(
+    `🚀 Server ready at http://localhost:${port}${apolloServer.graphqlPath}`
+  );
+});
 
-  const app = express();
-  server.applyMiddleware({ app });
+process.on("SIGTERM", () => {
+  server.close();
 
-  app.listen({ port: 4000 });
-  console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
-  return { server, app };
-}
+  process.exit(0);
+});
