@@ -15,7 +15,7 @@ export type Scalars = {
 
 export type Query = {
   __typename?: 'Query';
-  user: User;
+  user?: Maybe<User>;
 };
 
 
@@ -25,8 +25,11 @@ export type QueryUserArgs = {
 
 export type User = {
   __typename?: 'User';
-  userId: Scalars['Int'];
-  title: Scalars['String'];
+  name: Scalars['String'];
+  email: Scalars['String'];
+  password: Scalars['String'];
+  refreshToken?: Maybe<Scalars['String']>;
+  passwordResetToken?: Maybe<Scalars['String']>;
 };
 
 
@@ -110,7 +113,6 @@ export type ResolversTypes = {
   Query: ResolverTypeWrapper<{}>;
   ID: ResolverTypeWrapper<Scalars['ID']>;
   User: ResolverTypeWrapper<User>;
-  Int: ResolverTypeWrapper<Scalars['Int']>;
   String: ResolverTypeWrapper<Scalars['String']>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
 };
@@ -120,18 +122,20 @@ export type ResolversParentTypes = {
   Query: {};
   ID: Scalars['ID'];
   User: User;
-  Int: Scalars['Int'];
   String: Scalars['String'];
   Boolean: Scalars['Boolean'];
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
-  user?: Resolver<ResolversTypes['User'], ParentType, ContextType, RequireFields<QueryUserArgs, 'id'>>;
+  user?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType, RequireFields<QueryUserArgs, 'id'>>;
 };
 
 export type UserResolvers<ContextType = any, ParentType extends ResolversParentTypes['User'] = ResolversParentTypes['User']> = {
-  userId?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  password?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  refreshToken?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  passwordResetToken?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
