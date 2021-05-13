@@ -6460,7 +6460,7 @@ zen-observable@^0.8.0, zen-observable@^0.8.14:
   resolved "https://registry.yarnpkg.com/zen-observable/-/zen-observable-0.8.15.tgz#96415c512d8e3ffd920afd3889604e30b9eaac15"
   integrity sha512-PQ2PC7R9rslx84ndNBZB/Dkv8V8fZEpk83RLgXtYd0fwUgEjseMn1Dgajh2x6S8QbZAFa9p2qVCEuYZNgve0dQ==
 
-zod@^1.11.17:
-  version "1.11.17"
-  resolved "https://registry.yarnpkg.com/zod/-/zod-1.11.17.tgz#2aae9e91fc66128116ae9844e8f416a95f453f8e"
-  integrity sha512-UzIwO92D0dSFwIRyyqAfRXICITLjF0IP8tRbEK/un7adirMssWZx8xF/1hZNE7t61knWZ+lhEuUvxlu2MO8qqA==
+zod@^3.0.0-beta.1:
+  version "3.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-3.0.0-beta.1.tgz#97e6e3ac83a07521f66c8cceb68225c250f9345d"
+  integrity sha512-OTmLkOJoq/PFsZfHN2GAUnFJi14iJs4Oyo6nuHzRUO2ddIgMrEdYmEIEwc1FV0BkflLDpyRFiTngXN9uy7wYpg==
